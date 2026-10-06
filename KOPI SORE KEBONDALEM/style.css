@@ -1,0 +1,1002 @@
+/* ==========================================================================
+   KOPI SORE KEBONDALEM - Main Stylesheet (Mobile-First Approach)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES & THEME SETUP
+   -------------------------------------------------------------------------- */
+:root {
+  /* Light Theme Palette (Warm Earthy Coffee / Angkringan Tones) */
+  --bg-primary: #FAF6F0;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-dark-accent: #2C1810;
+  
+  --text-main: #2C1810;
+  --text-muted: #6B5B52;
+  --text-light: #F4EAE1;
+  
+  --primary-color: #8B4513;
+  --primary-hover: #6F370F;
+  --accent-color: #D27D2D;
+  --badge-bg: #E07A5F;
+  
+  --border-color: #E8DFD8;
+  --shadow-sm: 0 2px 8px rgba(44, 24, 16, 0.06);
+  --shadow-md: 0 4px 16px rgba(44, 24, 16, 0.1);
+  --shadow-lg: 0 8px 24px rgba(44, 24, 16, 0.15);
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+  
+  --transition: all 0.3s ease;
+  --max-width: 1200px;
+  --header-height: 70px;
+}
+/* Dark Mode Color Overrides */
+body.dark-mode {
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-card: #242424;
+  --bg-dark-accent: #181818;
+  
+  --text-main: #F4EAE1;
+  --text-muted: #B3A59B;
+  --text-light: #FFFFFF;
+  
+  --primary-color: #D27D2D;
+  --primary-hover: #E08B3A;
+  --accent-color: #E07A5F;
+  
+  --border-color: #333333;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-top: var(--header-height);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADER & NAVIGATION (FLEXBOX)
+   -------------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 0.5px;
+}
+
+.logo i {
+  font-size: 1.4rem;
+}
+
+/* Mobile Nav Drawer */
+.nav {
+  position: fixed;
+  top: var(--header-height);
+  left: -100%;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  background-color: var(--bg-secondary);
+  transition: left 0.3s ease;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-md);
+  overflow-y: auto;
+}
+
+.nav.active {
+  left: 0;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  display: block;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+/* Dropdown Menu (Mobile Accordion / Desktop Hover) */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-menu {
+  display: none;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.dropdown.active .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.dropdown-menu li a:hover {
+  color: var(--primary-color);
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-btn,
+.hamburger-btn {
+  background: transparent;
+  color: var(--text-main);
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.icon-btn:hover,
+.hamburger-btn:hover {
+  background-color: var(--bg-primary);
+  color: var(--primary-color);
+}
+
+/* --------------------------------------------------------------------------
+   4. HERO SECTION & SLIDER
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 2rem 0;
+}
+
+.slider-container {
+  position: relative;
+  background-color: var(--bg-dark-accent);
+  color: var(--text-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  min-height: 420px;
+}
+
+.slide {
+  display: none;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  gap: 1.5rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.3; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.slide-content h2 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  color: #FFFFFF;
+}
+
+.slide-content p {
+  color: #D1C7BD;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.slide-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-color);
+  color: #FFFFFF;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* Slider Controls */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.slider-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active {
+  width: 24px;
+  border-radius: 10px;
+  background-color: var(--accent-color);
+}
+
+/* --------------------------------------------------------------------------
+   5. ABOUT SECTION (FLEXBOX / GRID)
+   -------------------------------------------------------------------------- */
+.about-section {
+  padding: 3rem 0;
+}
+
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-image img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  max-height: 300px;
+}
+
+.section-subtitle {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.about-content h2 {
+  font-size: 1.75rem;
+  margin: 0.5rem 0 1rem;
+  color: var(--text-main);
+}
+
+.about-content p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.about-stats {
+  display: flex;
+  gap: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.stat-item h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.stat-item p {
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. PRODUCT / MENU SECTION (CSS GRID)
+   -------------------------------------------------------------------------- */
+.product-section {
+  padding: 3.5rem 0;
+  background-color: var(--bg-secondary);
+}
+
+.section-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--text-muted);
+}
+
+/* Grid Layout for Cards */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.product-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--badge-bg);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.product-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;      /* Memaksa bingkai gambar berbentuk KOTAK PRESISI */
+  object-fit: cover;        /* Mengisi penuh bingkai tanpa membuat foto gepeng */
+  object-position: center;   /* Menjaga fokus foto tetap di tengah */
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-info h3 {
+  font-size: 1.15rem;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.product-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.75rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.btn-detail {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.btn-detail:hover {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+  border-color: var(--primary-color);
+}
+
+/* --------------------------------------------------------------------------
+   7. GALLERY SECTION (CSS GRID)
+   -------------------------------------------------------------------------- */
+.gallery-section {
+  padding: 3.5rem 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  height: 220px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   8. CONTACT SECTION & FORM VALIDATION
+   -------------------------------------------------------------------------- */
+.contact-section {
+  padding: 3.5rem 0;
+  background-color: var(--bg-secondary);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+.contact-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.contact-info p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-style: normal;
+}
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.info-item i {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  background-color: var(--bg-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.info-item p {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+/* Form Styles */
+.contact-form-container {
+  background-color: var(--bg-card);
+  padding: 1.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-form-container h3 {
+  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-main);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
+}
+
+.error-msg {
+  color: #e74c3c;
+  font-size: 0.78rem;
+  margin-top: 4px;
+  display: block;
+  min-height: 18px;
+}
+
+.success-msg {
+  color: #2ecc71;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. PRODUCT MODAL DETAIL (POP-UP)
+   -------------------------------------------------------------------------- */
+
+/* Mengunci gambar di dalam Pop-up Detail agar KOTAK FULL di Mobile */
+#modal-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1 !important; /* Memaksa gambar berbentuk KOTAK 1:1 */
+  object-fit: cover !important;   /* Menjaga foto tidak gepeng/penyet */
+  object-position: center;        /* Fokus potongan di tengah foto */
+  border-radius: var(--radius-sm);
+  display: block;
+}
+/* --------------------------------------------------------------------------
+   10. FOOTER
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: var(--bg-dark-accent);
+  color: #D1C7BD;
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand h3 {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+}
+
+.footer-links h4 {
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. MODAL COMPONENT
+   -------------------------------------------------------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--bg-card);
+  padding: 1.75rem;
+  border-radius: var(--radius-md);
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.8rem;
+  background: transparent;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  color: var(--primary-color);
+}
+
+.modal-content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.modal-content h3 {
+  font-size: 1.4rem;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.modal-content .price {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.modal-content p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   12. MEDIA QUERIES (TABLET & DESKTOP RESPONSIVENESS)
+   -------------------------------------------------------------------------- */
+
+/* Tablet View (>= 600px / 768px) */
+@media screen and (min-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-stats {
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+}
+
+/* Desktop View (>= 992px) */
+@media screen and (min-width: 992px) {
+  .hamburger-btn {
+    display: none;
+  }
+
+  /* Reset Nav Drawer for Desktop Horizontal Bar */
+  .nav {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.98rem;
+    padding: 4px 0;
+  }
+
+  /* Dropdown on Hover for Desktop */
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    box-shadow: var(--shadow-md);
+    padding: 0.75rem 0;
+    display: none;
+    margin-top: 0;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    padding: 8px 16px;
+  }
+
+  /* Hero Desktop Layout */
+  .slider-container {
+    min-height: 380px;
+  }
+
+  .slide {
+    flex-direction: row;
+    align-items: center;
+    padding: 3rem;
+    gap: 3rem;
+  }
+
+  .slide-content {
+    flex: 1;
+  }
+
+  .slide-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .slide-image {
+    flex: 1;
+  }
+
+  .slide-image img {
+    height: 280px;
+  }
+
+  /* About Desktop Layout */
+  .about-grid {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .about-image, .about-content {
+    flex: 1;
+  }
+
+  .about-image img {
+    max-height: 380px;
+  }
+
+  /* Product Grid Desktop (3 to 4 Columns) */
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Gallery Grid Desktop (3 Columns) */
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Contact Desktop Layout */
+  .contact-grid {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+  }
+
+  /* Footer Layout Desktop */
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
