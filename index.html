@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kopi Sore Kebondalem - Angkringan & Coffee Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-mug-hot"></i>
+        <span>KOPI SORE</span>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="nav" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+          <!-- Dropdown Menu -->
+          <li class="nav-item dropdown">
+            <a href="#product" class="nav-link dropdown-toggle">Menu <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#product">Makanan & Sundukan</a></li>
+              <li><a href="#product">Minuman</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="#about" class="nav-link">Tentang Kami</a></li>
+          <li class="nav-item"><a href="#gallery" class="nav-link">Galeri</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons (Dark Mode & Hamburger Menu) -->
+      <div class="header-actions">
+        <button id="dark-mode-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION (WITH SLIDER) -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="slider-container">
+          <!-- Slide 1 -->
+          <div class="slide active">
+            <div class="slide-content">
+              <h2>Hangatnya Suasana Angkringan Kebondalem</h2>
+              <p>Nikmati ragam sundukan, gorengan hangat, dan hidangan khas sore bersama kawan dan keluarga.</p>
+              <a href="#product" class="btn btn-primary">Lihat Menu</a>
+            </div>
+            <div class="slide-image">
+              <img src="images/tampilan-1.jpeg" alt="Suasana Kopi Sore Kebondalem 1">
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide">
+            <div class="slide-content">
+              <h2>Susu Jahe & Kopi Khas Sore</h2>
+              <p>Racikan minuman hangat dan es segar pas untuk menemani obrolan malammu.</p>
+              <a href="#product" class="btn btn-primary">Pesan Sekarang</a>
+            </div>
+            <div class="slide-image">
+              <img src="images/tampilan-2.jpeg" alt="Suasana Kopi Sore Kebondalem 2">
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide">
+            <div class="slide-content">
+              <h2>Tempat Asik untuk Cangkrukan</h2>
+              <p>Buka setiap Senin - Sabtu jam 17.00 - 24.00 WIB di Banyudono, Boyolali.</p>
+              <a href="#contact" class="btn btn-secondary">Lokasi Kami</a>
+            </div>
+            <div class="slide-image">
+              <img src="images/tampilan-3.jpeg" alt="Suasana Kopi Sore Kebondalem 3">
+            </div>
+          </div>
+
+          <!-- Slider Controls -->
+          <button class="slider-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="slider-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+          
+          <!-- Slider Dots -->
+          <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="images/tampilan-1.jpeg" alt="Tentang Kopi Sore Kebondalem" class="responsive-img">
+        </div>
+        <div class="about-content">
+          <span class="section-subtitle">TENTANG KAMI</span>
+          <h2>Kopi Sore Kebondalem</h2>
+          <p>Kopi Sore Kebondalem menghadirkan konsep angkringan modern bernuansa santai dan hangat. Menyediakan aneka hidangan khas angkringan mulai dari sundukan, gorengan renyah, hingga susu jahe dan kopi khas.</p>
+          
+          <div class="about-stats">
+            <div class="stat-item">
+              <h3>4.8 ★</h3>
+              <p>Rating Pelanggan</p>
+            </div>
+            <div class="stat-item">
+              <h3>17.00 - 24.00</h3>
+              <p>Jam Operasional</p>
+            </div>
+            <div class="stat-item">
+              <h3>Senin - Sabtu</h3>
+              <p>Hari Buka</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT / MENU SECTION -->
+    <section id="product" class="product-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Menu Pilihan</h2>
+          <p>Pilih menu favoritmu dan rasakan kelezatannya!</p>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid">
+          
+          <!-- Card 1 -->
+          <article class="product-card">
+            <span class="badge">Favorit</span>
+            <img src="images/gorengan.jpeg" alt="Gorengan" class="product-img">
+            <div class="product-info">
+              <h3>Gorengan Hangat</h3>
+              <p class="product-desc">Gorengan renyah dan gurih, disajikan hangat.</p>
+              <div class="product-bottom">
+                <span class="price">Rp 1.000</span>
+                <button class="btn-detail" data-title="Gorengan Hangat" data-price="Rp 1.000" data-img="images/gorengan.jpeg" data-desc="Gorengan hangat renyah pilihan favorit untuk camilan santai sore hari.">Detail</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="product-card">
+            <span class="badge">Bestseller</span>
+            <img src="images/sundukan-telur.jpeg" alt="Sundukan Telur" class="product-img">
+            <div class="product-info">
+              <h3>Sundukan Telur Puyuh</h3>
+              <p class="product-desc">Sate telur puyuh dengan bumbu kecap gurih meresap.</p>
+              <div class="product-bottom">
+                <span class="price">Rp 3.500</span>
+                <button class="btn-detail" data-title="Sundukan Telur Puyuh" data-price="Rp 3.500" data-img="images/sundukan-telur.jpeg" data-desc="Sundukan telur puyuh berbumbu manis gurih khas angkringan Kebondalem.">Detail</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="product-card">
+            <img src="images/sundukan-usus.jpeg" alt="Sundukan Usus" class="product-img">
+            <div class="product-info">
+              <h3>Sundukan Usus</h3>
+              <p class="product-desc">Sate usus ayam empuk berbalut bumbu rempah.</p>
+              <div class="product-bottom">
+                <span class="price">Rp 2.000</span>
+                <button class="btn-detail" data-title="Sundukan Usus" data-price="Rp 2.000" data-img="images/sundukan-usus.jpeg" data-desc="Sundukan usus ayam pilihan dengan bumbu meresap dan aroma wangi.">Detail</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="product-card">
+            <span class="badge">Spesial</span>
+            <img src="images/rica-rica.jpeg" alt="Rica rica Ayam" class="product-img">
+            <div class="product-info">
+              <h3>Rica-Rica Ayam</h3>
+              <p class="product-desc">Olahan daging ayam dengan bumbu rica pedas mantap.</p>
+              <div class="product-bottom">
+                <span class="price">Rp 6.000</span>
+                <button class="btn-detail" data-title="Rica-Rica Ayam" data-price="Rp 6.000" data-img="images/rica-rica.jpeg" data-desc="Rica-rica ayam olahan rempah pilihan dengan tingkat kepedasan pas di lidah.">Detail</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="product-card">
+            <img src="images/sayur-terong.jpeg" alt="Sayur Terong" class="product-img">
+            <div class="product-info">
+              <h3>Sayur Terong</h3>
+              <p class="product-desc">Sayur terong gurih pedas per porsi mantap.</p>
+              <div class="product-bottom">
+                <span class="price">Rp 3.000</span>
+                <button class="btn-detail" data-title="Sayur Terong" data-price="Rp 3.000" data-img="images/sayur-terong.jpeg" data-desc="Sayur terong porsi pas nikmat dipadukan dengan nasi hangat.">Detail</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="product-card">
+            <span class="badge">Penghangat</span>
+            <img src="images/susu-jahe.jpeg" alt="Susu Jahe" class="product-img">
+            <div class="product-info">
+              <h3>Susu Jahe Hangat</h3>
+              <p class="product-desc">Perpaduan jahe asli pilihan dan susu manis segar.</p>
+              <div class="product-bottom">
+                <span class="price">Rp 7.500</span>
+                <button class="btn-detail" data-title="Susu Jahe Hangat" data-price="Rp 7.500" data-img="images/susu-jahe.jpeg" data-desc="Minuman kesehatan jahe murni dengan perasan susu hangat.">Detail</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 (Menu Tambahan) -->
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500" alt="Es Teh Manis" class="product-img">
+            <div class="product-info">
+              <h3>Es Teh Manis</h3>
+              <p class="product-desc">Es teh segar penyegar dahaga di malam hari.</p>
+              <div class="product-bottom">
+                <span class="price">Rp 4.000</span>
+                <button class="btn-detail" data-title="Es Teh Manis" data-price="Rp 4.000" data-img="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500" data-desc="Es teh segar khas angkringan.">Detail</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 (Menu Tambahan) -->
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500" alt="Kopi Khas Sore" class="product-img">
+            <div class="product-info">
+              <h3>Kopi Khas Sore</h3>
+              <p class="product-desc">Seduhan kopi hitam nikmat kaya aroma.</p>
+              <div class="product-bottom">
+                <span class="price">Rp 4.500</span>
+                <button class="btn-detail" data-title="Kopi Khas Sore" data-price="Rp 4.500" data-img="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500" data-desc="Seduhan kopi hitam khas Kopi Sore.">Detail</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Galeri Tempat</h2>
+          <p>Suasana hangat dan santai di Kopi Sore Kebondalem</p>
+        </div>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="images/tampilan-1.jpeg" alt="Suasana Angkringan 1">
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/tampilan-2.jpeg" alt="Suasana Angkringan 2">
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/tampilan-3.jpeg" alt="Suasana Angkringan 3">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION WITH FORM VALIDATION -->
+    <section id="contact" class="contact-section">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <h2>Kunjungi Kami</h2>
+          <p>Datang dan nikmati hidangan khas sore bersama kami.</p>
+          <address class="info-list">
+            <div class="info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <strong>Alamat:</strong>
+                <p>Kebondalem, Bendan, Banyudono, Boyolali</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fa-solid fa-clock"></i>
+              <div>
+                <strong>Jam Buka:</strong>
+                <p>Senin - Sabtu (17.00 - 00.00 WIB)</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fa-brands fa-whatsapp"></i>
+              <div>
+                <strong>WhatsApp:</strong>
+                <p>0888xxxxxx</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fa-brands fa-instagram"></i>
+              <div>
+                <strong>Instagram / GoFood:</strong>
+                <p>@KOPI_SORE_KEBONDALEM | GoFood Available</p>
+              </div>
+            </div>
+          </address>
+        </div>
+
+        <div class="contact-form-container">
+          <h3>Kirim Pesan / Reservasi</h3>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" name="name" placeholder="Masukkan nama Anda">
+              <small class="error-msg" id="name-error"></small>
+            </div>
+            <div class="form-group">
+              <label for="email">Email / Nomor HP</label>
+              <input type="text" id="email" name="email" placeholder="Masukkan Email / No. HP">
+              <small class="error-msg" id="email-error"></small>
+            </div>
+            <div class="form-group">
+              <label for="message">Pesan / Pesanan</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tuliskan pesan Anda..."></textarea>
+              <small class="error-msg" id="message-error"></small>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Kirim Pesan</button>
+            <div id="form-success" class="success-msg"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <h3>KOPI SORE KEBONDALEM</h3>
+        <p>Angkringan & Coffee Shop lokal dengan rasa dan suasana terbaik.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigasi Cepat</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#product">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2027 KOPI SORE KEBONDALEM. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL DETAIL PRODUK -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <img id="modal-img" src="" alt="Detail Produk">
+      <h3 id="modal-title">Judul Produk</h3>
+      <span id="modal-price" class="price">Rp 0</span>
+      <p id="modal-desc">Deskripsi produk lengkap akan muncul di sini.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
